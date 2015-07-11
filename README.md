@@ -21,7 +21,7 @@ Examples:
 ## Installation
 
 ```
-$ npm i css-revealer
+$ npm install -g css-revealer
 ```
 
 ## Usage
@@ -53,7 +53,7 @@ cssRevealer({
 
 * `options.stylesheets` (required) array of globs specifying which stylesheets to extract selectors from.
 * `options.templates` (required) array of globs specifying which templates to check for selector presence.
-* `options.format` (optional) either a string specifying which built-in report format to use, or a custom format function which gets passed the `result` object.
+* `options.format` (optional) either a string specifying which built-in report format to use (`markdown` or `json`), or a custom format function which gets passed the `result` object.
 * `options.done` (optional) function to execute when the report is complete. It gets passed an `error` (which can be `null`) and the formatted `result`.
 
 ## Notes
