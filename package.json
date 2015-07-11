@@ -10,7 +10,15 @@
     "lint": "eslint index.js lib test",
     "test": "npm run lint && tape test/helpers/globals.js test/**/*.test.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tanem/css-revealer.git"
+  },
+  "homepage": "https://github.com/tanem/css-revealer",
+  "author": {
+    "name": "Tane Morgan",
+    "url": "http://github.com/tanem"
+  },
   "license": "MIT",
   "devDependencies": {
     "eslint": "^0.24.1",
@@ -23,5 +31,13 @@
     "lodash": "^3.10.0",
     "glob": "^5.0.13",
     "yargs": "^3.14.0"
-  }
+  },
+  "keywords": [
+    "css",
+    "usage",
+    "selectors",
+    "templates",
+    "analysis",
+    "report"
+  ]
 }
