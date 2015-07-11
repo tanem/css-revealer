@@ -1,0 +1,24 @@
+/*
+Some comments.
+More comments.
+*/
+.SomeComponent {
+  height: 20px;
+}
+
+.SomeComponent-link {
+  text-decoration: none;
+}
+
+/*
+Some comments with an example:
+
+  .SomeComponent-descendant {}
+*/
+.SomeComponent-avatar {
+  display: block;
+}
+
+.SomeComponent-button {
+  color: green;
+}

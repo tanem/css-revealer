@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+var cssRevealer = require('../');
+
+var argv = require('yargs')
+  .usage('Usage: $0 {OPTIONS}')
+  .example('$0 -s *.css -t *.html', '')
+  .example('$0 -s *.css -t *.html -o markdown', '')
+  .demand(['s', 't'])
+  .alias('s', 'stylesheets')
+  .alias('t', 'templates')
+  .alias('o', 'output')
+  .describe('s', 'Stylesheets glob')
+  .describe('t', 'Templates glob')
+  .describe('o', 'Output format')
+  .default('o', 'json')
+  .array('s')
+  .array('t')
+  .argv;
+
+cssRevealer({
+  stylesheets: argv.s,
+  templates: argv.t,
+  format: argv.f,
+  done: function(error, result){
+    if (error) return process.stderr.write(error);
+    process.stdout.write(result);
+  }
+});
