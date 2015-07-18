@@ -49,14 +49,21 @@ cssRevealer({
 
 ## API
 
-### `cssRevealer(options:Object)`
+```js
+var cssRevealer = require('cssRevealer');
+```
 
-* `options.stylesheets` (required) array of globs specifying which stylesheets to extract selectors from.
-* `options.templates` (required) array of globs specifying which templates to check for selector presence.
-* `options.format` (optional) either a string specifying which built-in report format to use (`markdown` or `json`), or a custom format function which gets passed the `result` object.
-* `options.done` (optional) function to execute when the report is complete. It gets passed an `error` (which can be `null`) and the formatted `result`.
+### `cssRevealer(options)`
 
-## Notes
+`options.stylesheets` is a required array of globs specifying which stylesheets to extract selectors from.
+
+`options.templates` is a required array of globs specifying which templates to check for selector presence.
+
+`options.format` is an optional string specifying which built-in report format to use [`json`](test/fixtures/format.json) or [`markdown`](test/fixtures/format.md), or a custom format function which gets passed the [`result`](test/fixtures/result.js) object. Defaults to `json`.
+
+`options.done` is an optional function to execute when the report is complete. It gets passed an `error` (which can be `null`) and the formatted `result`.
+
+## Implementation notes
 
 * [isaacs/node-glob](https://github.com/isaacs/node-glob) is the glob implementation.
 * [reworkcss/css](https://github.com/reworkcss/css) is the underlying CSS parser.
@@ -68,3 +75,7 @@ cssRevealer({
 ```
 $ npm test
 ```
+
+## License
+
+MIT
