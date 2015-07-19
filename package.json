@@ -1,6 +1,6 @@
 {
   "name": "css-revealer",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Reveal CSS selector usage within HTML templates.",
   "bin": {
     "css-revealer": "./bin/css-revealer"
