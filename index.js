@@ -3,7 +3,6 @@
 var _ = require('lodash');
 var glob = require('glob');
 var async = require('async');
-
 var readFile = require('./lib/util').readFile;
 var concat = require('./lib/util').concat;
 var propEq = require('./lib/util').propEq;
