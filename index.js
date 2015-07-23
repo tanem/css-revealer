@@ -1,11 +1,10 @@
 'use strict';
 
-var _ = require('lodash');
+var R = require('ramda');
 var glob = require('glob');
 var async = require('async');
 var readFile = require('./lib/util').readFile;
-var concat = require('./lib/util').concat;
-var propEq = require('./lib/util').propEq;
+var isFunction = require('./lib/util').isFunction;
 var parseStylesheet = require('./lib/parseStylesheet');
 var formatResult = require('./lib/formatResult');
 var checkTemplate = require('./lib/checkTemplate');
@@ -21,16 +20,16 @@ module.exports = function(options){
 
   async.auto({
 
-    getStylesheetList: _.partial(async.concat, stylesheets, glob),
+    getStylesheetList: R.curry(async.concat)(stylesheets, glob),
 
-    getTemplateList: _.partial(async.concat, templates, glob),
+    getTemplateList: R.curry(async.concat)(templates, glob),
 
     readStylesheets: ['getStylesheetList', function(callback, results){
       async.mapSeries(results.getStylesheetList, readFile, callback);
     }],
 
     concatStylesheets: ['readStylesheets', function(callback, results){
-      callback(null, results.readStylesheets.reduce(concat, ''));
+      callback(null, results.readStylesheets.reduce(R.concat, ''));
     }],
 
     parseStylesheets: ['concatStylesheets', function(callback, results){
@@ -41,14 +40,14 @@ module.exports = function(options){
       async.reduce(
         results.getTemplateList,
         { used: [], unused: [] },
-        _.partial(checkTemplate, results.parseStylesheets),
+        R.curry(checkTemplate)(results.parseStylesheets),
         callback
       );
     }],
 
     sortResult: ['checkTemplates', function(callback, results){
       callback(null, results.parseStylesheets.reduce(function(memo, selector){
-        var matchingOccurrence = _.find(results.checkTemplates.used, propEq('selector', selector));
+        var matchingOccurrence = R.find(R.propEq('selector', selector))(results.checkTemplates.used);
         if (matchingOccurrence) {
           memo.used.push(matchingOccurrence);
         } else {
@@ -59,7 +58,7 @@ module.exports = function(options){
     }],
 
     formatResult: ['sortResult', function(callback, results){
-      var formatter = _.isFunction(format) ? format : formatResult[format];
+      var formatter = isFunction(format) ? format : formatResult[format];
       callback(null, formatter(results.sortResult));
     }]
 
