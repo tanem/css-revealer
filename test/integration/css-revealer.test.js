@@ -1,11 +1,10 @@
 'use strict';
 
 var test = require('tape');
-var _ = require('lodash');
+var R = require('ramda');
 var cssRevealer = require('../..');
 
 var formatResult = requireLib('formatResult');
-var replace = requireLib('util').replace;
 
 test('should handle arrays of glob patterns', function(t){
 
@@ -63,7 +62,7 @@ test('should allow specification of a custom formatter', function(t){
 
   t.plan(2);
 
-  var customFormatter = _.compose(replace(/test\/fixtures\//g, ''), formatResult.markdown);
+  var customFormatter = R.compose(R.replace(/test\/fixtures\//g, ''), formatResult.markdown);
   var expected = readFixture('customFormat.md');
 
   cssRevealer({
