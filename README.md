@@ -1,7 +1,8 @@
 # css-revealer
 
-[![Build Status](https://travis-ci.org/tanem/css-revealer.png?branch=master)](https://travis-ci.org/tanem/css-revealer)
-[![NPM version](https://badge.fury.io/js/css-revealer.svg)](http://badge.fury.io/js/css-revealer)
+[![build status](https://img.shields.io/travis/tanem/css-revealer/master.svg?style=flat-square)](https://travis-ci.org/tanem/css-revealer)
+[![npm version](https://img.shields.io/npm/v/css-revealer.svg?style=flat-square)](https://www.npmjs.com/package/css-revealer)
+[![npm downloads](https://img.shields.io/npm/dm/css-revealer.svg?style=flat-square)](https://www.npmjs.com/package/css-revealer)
 
 Reveal CSS selector usage within HTML templates.
 
