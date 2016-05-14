@@ -19,13 +19,13 @@ Examples:
   css-revealer -s *.css -t *.html -o markdown
 ```
 
-## Installation
+## installation
 
 ```
 $ npm install -g css-revealer
 ```
 
-## Usage
+## usage
 
 To generate a JSON report of CSS selector usage from stylesheets within a `styles` directory, for templates in a `templates` directory:
 
@@ -48,7 +48,7 @@ cssRevealer({
 });
 ```
 
-## API
+## api
 
 ```js
 var cssRevealer = require('cssRevealer');
@@ -64,19 +64,19 @@ var cssRevealer = require('cssRevealer');
 
 `options.done` is an optional function to execute when the report is complete. It gets passed an `error` (which can be `null`) and the formatted `result`.
 
-## Implementation notes
+## implementation
 
 * [isaacs/node-glob](https://github.com/isaacs/node-glob) is the glob implementation.
 * [reworkcss/css](https://github.com/reworkcss/css) is the underlying CSS parser.
 * If multiple stylesheets are passed, they are concatenated in the order returned by `node-glob`, prior to being parsed.
 * It has a fairly simple way of parsing and checking for selectors, check out the unit tests to see how it works :wink:
 
-## Tests
+## tests
 
 ```
 $ npm test
 ```
 
-## License
+## license
 
 MIT
