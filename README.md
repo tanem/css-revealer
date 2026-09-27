@@ -1,5 +1,7 @@
 # css-revealer
 
+> **Unmaintained.** This project is no longer maintained and the repository is archived. The npm package is deprecated.
+
 [![build status](https://img.shields.io/travis/tanem/css-revealer/master.svg?style=flat-square)](https://travis-ci.org/tanem/css-revealer)
 [![npm version](https://img.shields.io/npm/v/css-revealer.svg?style=flat-square)](https://www.npmjs.com/package/css-revealer)
 [![npm downloads](https://img.shields.io/npm/dm/css-revealer.svg?style=flat-square)](https://www.npmjs.com/package/css-revealer)
